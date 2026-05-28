@@ -43,20 +43,26 @@
     <!-- Dashboard -->
     <!-- ========================= -->
     <section class="dashboard">
-
+		
+		<!-- 收入支出計算 -->
+		<script>
+			let a = 0;
+			let b = 0;
+		</script>
+		
         <div class="card income-card">
             <h2>本月收入</h2>
-            <p>$ 15000</p>
+            <p>$ 0</p>
         </div>
 
         <div class="card expense-card">
             <h2>本月支出</h2>
-            <p>$ 9200</p>
+            <p>$ 0</p>
         </div>
 
         <div class="card remain-card">
-            <h2>剩餘金額</h2>
-            <p>$ 5800</p>
+            <h2>淨利或淨損</h2>
+            <p>$ 0</p>
         </div>
 
     </section>
@@ -106,9 +112,9 @@
             <!-- 日期 -->
             <div class="form-group">
 
-                <label>日期：</label>
+              <label>日期：</label>
 
-                <input type="date" id="date">
+                <input type="date" id="date" max="9999-12-31">
 
             </div>
 
