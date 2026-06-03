@@ -1,0 +1,240 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智慧記帳管理系統</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="網頁程設.css">
+
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <!-- ========================= -->
+    <!-- Navbar -->
+    <!-- ========================= -->
+    <header>
+        <nav class="navbar">
+
+            <div class="logo">
+                Smart Expense Tracker
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="#">首頁</a></li>
+                <li><a href="#form-section">新增記帳</a></li>
+                <li><a href="#calendar-section">月曆</a></li>
+                <li><a href="#chart-section">統計分析</a></li>
+                <li><a href="#history-section">歷史紀錄</a></li>
+            </ul>
+
+        </nav>
+    </header>
+
+    <!-- ========================= -->
+    <!-- Dashboard -->
+    <!-- ========================= -->
+    <section class="dashboard">
+		
+		<!-- 收入支出計算 -->
+		<script>
+			let a = 0;
+			let b = 0;
+		</script>
+		
+        <div class="card income-card">
+            <h2>本月收入</h2>
+            <p>$ 0</p>
+        </div>
+
+        <div class="card expense-card">
+            <h2>本月支出</h2>
+            <p>$ 0</p>
+        </div>
+
+        <div class="card remain-card">
+            <h2>淨利或淨損</h2>
+            <p>$ 0</p>
+        </div>
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- Add Expense Button -->
+    <!-- ========================= -->
+    <section class="button-section">
+
+        <button id="toggleFormBtn">
+            + 新增記帳
+        </button>
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- Form Section -->
+    <!-- ========================= -->
+    <section id="form-section" class="form-section">
+
+        <form id="expenseForm">
+
+            <h2>新增記帳資料</h2>
+
+            <!-- 收入 / 支出 -->
+            <div class="form-group">
+
+                <label>類型：</label>
+
+                <input type="radio" name="type" value="income">
+                收入
+
+                <input type="radio" name="type" value="expense" checked>
+                支出
+
+            </div>
+
+            <!-- 金額 -->
+            <div class="form-group">
+
+                <label>金額：</label>
+
+                <input type="number" id="amount">
+
+            </div>
+
+            <!-- 日期 -->
+            <div class="form-group">
+
+              <label>日期：</label>
+
+                <input type="date" id="date" max="9999-12-31">
+
+            </div>
+
+            <!-- 類別 -->
+            <div class="form-group">
+
+                <label>類別：</label>
+
+                <select id="category">
+
+                    <option>飲食</option>
+                    <option>交通</option>
+                    <option>娛樂</option>
+                    <option>購物</option>
+                    <option>學習</option>
+                    <option>其他</option>
+
+                </select>
+
+            </div>
+
+            <!-- 備註 -->
+            <div class="form-group">
+
+                <label>備註：</label>
+
+                <textarea id="note"></textarea>
+
+            </div>
+
+            <!-- 按鈕 -->
+            <div class="form-buttons">
+
+                <button type="submit">
+                    新增資料
+                </button>
+
+                <button type="reset">
+                    清空
+                </button>
+
+            </div>
+
+        </form>
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- Calendar Section -->
+    <!-- ========================= -->
+    <section id="calendar-section" class="calendar-section">
+
+        <h2>月曆檢視</h2>
+
+        <div class="calendar">
+
+            <!-- 之後 JS 動態生成 -->
+            <div class="day">1</div>
+            <div class="day">2</div>
+            <div class="day">3</div>
+
+        </div>
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- Chart Section -->
+    <!-- ========================= -->
+    <section id="chart-section" class="chart-section">
+
+        <h2>支出統計分析</h2>
+
+        <div class="chart-container">
+
+            <canvas id="pieChart"></canvas>
+
+        </div>
+
+        <div class="chart-container">
+
+            <canvas id="barChart"></canvas>
+
+        </div>
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- History Section -->
+    <!-- ========================= -->
+    <section id="history-section" class="history-section">
+
+        <h2>歷史紀錄</h2>
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>日期</th>
+                    <th>類型</th>
+                    <th>類別</th>
+                    <th>金額</th>
+                    <th>備註</th>
+                    <th>操作</th>
+                </tr>
+
+            </thead>
+
+            <tbody id="historyTable">
+
+                <!-- JS新增資料 -->
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+    <!-- JS -->
+    <script src="網頁程設.js"></script>
+
+</body>
+</html>
